@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html 
+	lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+		<title>JSF FORM COMPONENTS</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Name:"/>
+				<h:inputText value="#{student.name}"/>
+				
+				<h:outputText value="Surname:"/>
+				<h:inputText value="#{student.surname}"/>
+				
+				<h:outputText value="What is your gender ?"/>
+				<h:selectManyCheckbox value="#{student.gender}">
+					<f:selectItem itemValue="Man" itemLabel="Man"/>
+					<f:selectItem itemValue="Women" itemLabel="Women"/>
+				</h:selectManyCheckbox>
+				
+				<h:outputText value="Have you a driving licence ?"/>
+				<h:selectOneRadio value="#{student.drivingLicence}">
+					<f:selectItem itemValue="Yes" itemLabel="Yes"/>
+					<f:selectItem itemValue="NO" itemLabel="No"/>
+				</h:selectOneRadio>
+				
+				<h:outputText value="Password"/>
+				<h:inputSecret value="#{student.password}" />
+				
+				<h:outputText value="JSF image:"/>
+				<h:graphicImage library="images" name="jsf.jpg" />
+				<h:outputText value="Is it accepted ?"/>
+				<h:selectBooleanCheckbox value="#{student.accepted}"/>
+				<h:commandButton value="Submit"/>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+				<h3>The Information</h3>
+				<h:outputText value="#{student.message}"/>
+				<h:outputText value="#{student.name}"/>
+				<h:outputText value="#{student.surname}"/>
+				<h:outputText value="#{student.gender}"/>
+				<h:outputText value="#{student.drivingLicence}"/>
+			</h:panelGrid>
+			
+		</h:form>
+	</h:body>
+</html>
