@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+
+<html 
+	lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+		<title>Form Validation</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			 <h:panelGrid columns="3">
+				<h:outputText value="Name:" />
+				<h:inputText id="name" value="#{formValidation.name}" required="true" requiredMessage="Please, fill this field."/>
+				<h:message for="name" style="color:red"/>
+				
+				<h:outputText value="Surname:"/>
+				<h:inputText id="surname" value="#{formValidation.surname}" required="true" requiredMessage="Please, fill this field."/>
+				<h:message for="surname" style="color:red"/>
+				
+				<h:outputText value="E-mail:"/>
+				<h:inputText id="email" value="#{formValidation.email}"  validatorMessage="Invalid email" required="true" requiredMessage="Please, fill this field.">
+					<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" /> 
+				</h:inputText>
+				<h:message for="email" style="color:red"/>
+				
+				<h:outputText value="Password:"/>
+				<h:inputSecret id="password" value="#{formValidation.password}" required="true" requiredMessage="Please, fill this field."/>
+				<h:message for="password" style="color:red" />
+			</h:panelGrid> 
+			
+			
+			
+			<h:panelGrid columns="2">
+				<h:outputText value="Where are you live ?"/>
+				<h:selectOneMenu value="#{formValidation.county}">
+					<f:selectItems value="#{formValidation.counties}"/>
+				</h:selectOneMenu>
+				
+				<h:outputText value="Gender:"/>
+				<h:selectOneRadio value="#{formValidation.gender}">
+					<f:selectItems value="#{formValidation.genders}"/>
+				</h:selectOneRadio>
+				
+				<h:outputText value="What is your address ?"/>
+				<h:inputTextarea value="#{formValidation.address}"/>
+			</h:panelGrid>
+			
+			
+			<h:panelGrid columns="1">
+				<h:outputText value="What is your english level ?" />
+				<h:selectOneRadio value="#{formValidation.english}" >
+					<f:selectItems value="#{formValidation.englishLevel}" />
+				</h:selectOneRadio>
+			</h:panelGrid>
+			
+			<h:commandButton value="Submit" action="response"/>
+			
+		</h:form>
+		
+	</h:body>
+</html>
