@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<composite:interface>
+		<composite:attribute name="write_name"/>
+		<composite:attribute name="name_value"/>
+		
+		<composite:attribute name="write_surname" />
+		<composite:attribute name="surname_value" />
+	</composite:interface>
+	
+	
+	<composite:implementation>
+		<h:form>
+			<h:panelGrid columns="2">
+				#{cc.attrs.write_name}
+				<h:inputText id="name" value="#{cc.attrs.name_value}"/>
+				#{cc.attrs.write_surname}
+				<h:inputText id="surname" value="#{cc.attrs.surname_value}"/>
+				<h:commandButton action="nameSurname.xhtml" value="Send"/>
+			</h:panelGrid>
+		</h:form>
+	</composite:implementation>
+	
+</html>
